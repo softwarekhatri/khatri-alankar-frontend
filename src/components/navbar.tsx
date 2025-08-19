@@ -59,22 +59,31 @@ export function Navbar({ onNavigate }: NavbarProps) {
           </button>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Button (always visible, fixed in mobile menu) */}
         <button
-          className="md:hidden text-white text-2xl"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className={`md:hidden text-white text-2xl focus:outline-none ${isMobileMenuOpen ? 'fixed top-6 right-6 z-[100]' : ''}`}
+          style={isMobileMenuOpen ? { position: 'fixed', top: 24, right: 24 } : {}}
+          onClick={() => setIsMobileMenuOpen((open) => !open)}
+          aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
           data-testid="button-mobile-menu"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
+          {isMobileMenuOpen ? (
+            // Close (X) icon
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            // Burger icon
+            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          )}
         </button>
       </div>
 
       {/* Mobile Navigation Menu */}
-      <div className={`md:hidden absolute top-full left-0 right-0 bg-black bg-opacity-95 backdrop-blur-sm transition-all duration-300 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
-        }`}>
-        <div className="px-6 py-6 space-y-4">
+      <div className={`md:hidden fixed inset-0 bg-black bg-opacity-95 backdrop-blur-sm transition-all duration-300 z-50 flex flex-col ${isMobileMenuOpen ? 'translate-y-0 opacity-100 pointer-events-auto' : '-translate-y-full opacity-0 pointer-events-none'}`}>
+        <div className="px-6 py-12 space-y-6 flex-1 flex flex-col justify-center items-center">
           <button
             onClick={() => { onNavigate('catalogue'); setIsMobileMenuOpen(false); }}
             className="block text-white hover:text-luxury-gold transition-colors duration-300 font-medium py-2"

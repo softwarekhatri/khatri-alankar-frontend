@@ -61,14 +61,18 @@ export function ProductGrid({ products, isLoading, onProductClick, onWhatsappSha
                 className="w-full h-64 object-cover hover:scale-110 transition-transform duration-500"
                 loading="lazy"
               />
-              {product.isNewProduct && (
-                <div className="absolute top-4 right-4 bg-luxury-gold text-black px-3 py-1 rounded-full text-sm font-semibold">
-                  New
-                </div>
-              )}
-              {product.isOnSale && (
-                <div className="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                  Sale
+              {(product.isNewProduct || product.isOnSale) && (
+                <div className="absolute top-4 right-4 flex flex-row items-center space-x-1 z-10">
+                  {product.isNewProduct && (
+                    <div className="bg-luxury-gold text-black px-3 py-1 rounded-full text-sm font-semibold shadow">
+                      New
+                    </div>
+                  )}
+                  {product.isOnSale && (
+                    <div className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold shadow">
+                      Sale
+                    </div>
+                  )}
                 </div>
               )}
               {product.isFeatured && !product.isNewProduct && !product.isOnSale && (
