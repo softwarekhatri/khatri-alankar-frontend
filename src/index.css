@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Cinzel:wght@400;500;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(210, 25%, 7.8431%);
+  --card: hsl(180, 6.6667%, 97.0588%);
+  --card-foreground: hsl(210, 25%, 7.8431%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(210, 25%, 7.8431%);
+  --primary: hsl(203.8863, 88.2845%, 53.1373%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(210, 25%, 7.8431%);
+  --secondary-foreground: hsl(0, 0%, 100%);
+  --muted: hsl(240, 1.9608%, 90%);
+  --muted-foreground: hsl(210, 25%, 7.8431%);
+  --accent: hsl(211.5789, 51.3514%, 92.7451%);
+  --accent-foreground: hsl(203.8863, 88.2845%, 53.1373%);
+  --destructive: hsl(356.3033, 90.5579%, 54.3137%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --border: hsl(201.4286, 30.4348%, 90.9804%);
+  --input: hsl(200, 23.0769%, 97.4510%);
+  --ring: hsl(202.8169, 89.1213%, 53.1373%);
+  
+  /* Luxury jewelry theme colors */
+  --luxury-gold: hsl(51, 68%, 52%);
+  --light-gold: hsl(58, 76%, 76%);
+  --dark-gold: hsl(47, 81%, 35%);
+  --elegant-black: hsl(0, 0%, 10%);
+  --soft-gray: hsl(0, 0%, 98%);
+  
+  /* Font families */
+  --font-playfair: 'Playfair Display', serif;
+  --font-inter: 'Inter', sans-serif;
+  --font-cinzel: 'Cinzel', serif;
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+  --font-mono: Menlo, monospace;
+  --radius: 1.3rem;
+}
+
+.dark {
+  --background: hsl(0, 0%, 0%);
+  --foreground: hsl(200, 6.6667%, 91.1765%);
+  --card: hsl(228, 9.8039%, 10%);
+  --card-foreground: hsl(0, 0%, 85.0980%);
+  --popover: hsl(0, 0%, 0%);
+  --popover-foreground: hsl(200, 6.6667%, 91.1765%);
+  --primary: hsl(203.7736, 87.6033%, 52.5490%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(195.0000, 15.3846%, 94.9020%);
+  --secondary-foreground: hsl(210, 25%, 7.8431%);
+  --muted: hsl(0, 0%, 9.4118%);
+  --muted-foreground: hsl(210, 3.3898%, 46.2745%);
+  --accent: hsl(205.7143, 70%, 7.8431%);
+  --accent-foreground: hsl(203.7736, 87.6033%, 52.5490%);
+  --destructive: hsl(356.3033, 90.5579%, 54.3137%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --border: hsl(210, 5.2632%, 14.9020%);
+  --input: hsl(207.6923, 27.6596%, 18.4314%);
+  --ring: hsl(202.8169, 89.1213%, 53.1373%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .hero-gradient {
+    background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(26,26,26,0.5) 100%);
+  }
+  
+  .gold-gradient {
+    background: linear-gradient(135deg, hsl(51, 68%, 52%) 0%, hsl(58, 76%, 76%) 50%, hsl(47, 81%, 35%) 100%);
+  }
+  
+  .font-playfair {
+    font-family: var(--font-playfair);
+  }
+  
+  .font-inter {
+    font-family: var(--font-inter);
+  }
+  
+  .font-cinzel {
+    font-family: var(--font-cinzel);
+  }
+  
+  .text-luxury-gold {
+    color: hsl(51, 68%, 52%);
+  }
+  
+  .text-light-gold {
+    color: hsl(58, 76%, 76%);
+  }
+  
+  .text-dark-gold {
+    color: hsl(47, 81%, 35%);
+  }
+  
+  .text-elegant-black {
+    color: hsl(0, 0%, 10%);
+  }
+  
+  .bg-luxury-gold {
+    background-color: hsl(51, 68%, 52%);
+  }
+  
+  .bg-light-gold {
+    background-color: hsl(58, 76%, 76%);
+  }
+  
+  .bg-dark-gold {
+    background-color: hsl(47, 81%, 35%);
+  }
+  
+  .bg-elegant-black {
+    background-color: hsl(0, 0%, 10%);
+  }
+  
+  .bg-soft-gray {
+    background-color: hsl(0, 0%, 98%);
+  }
+  
+  .border-luxury-gold {
+    border-color: hsl(51, 68%, 52%);
+  }
+  
+  .hover\:bg-luxury-gold:hover {
+    background-color: hsl(51, 68%, 52%);
+  }
+  
+  .hover\:text-luxury-gold:hover {
+    color: hsl(51, 68%, 52%);
+  }
+  
+  .focus\:ring-luxury-gold:focus {
+    --tw-ring-color: hsl(51, 68%, 52%);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out;
+}
+
+.animate-zoom-in {
+  animation: zoomIn 0.3s ease-out;
+}
