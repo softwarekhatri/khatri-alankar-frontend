@@ -231,7 +231,7 @@ export default function Home() {
                 <input
                   type="text"
                   className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-luxury-gold focus:border-transparent transition-all duration-300"
-                  placeholder="Search by name, code, description..."
+                  placeholder="Search by name or code"
                   value={search}
                   onChange={e => setSearch(e.target.value)}
                   data-testid="input-search-products"
