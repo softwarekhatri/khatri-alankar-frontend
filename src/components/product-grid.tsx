@@ -83,7 +83,7 @@ export function ProductGrid({ products, isLoading, onProductClick, onWhatsappSha
             </div>
             <div className="p-6">
               <h3 className="font-playfair font-semibold text-xl text-elegant-black mb-2">{product.name}</h3>
-              <p className="text-gray-600 text-sm mb-4 line-clamp-2">{product.description}</p>
+              <p className="text-gray-600 text-sm mb-4 line-clamp-1">{product.description}</p>
               <p className="text-luxury-gold font-semibold mb-4">Code: {product.code}</p>
               <div className="flex space-x-3">
                 <button
